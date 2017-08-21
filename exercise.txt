@@ -1,0 +1,867 @@
+1) Let's start by figuring out how many dinosaurs we have. Count the number of dinosaurs.
+
+dinosaurs=# SELECT COUNT(name) FROM dinos;                                                                                                                                         count
+-------
+   331
+(1 row)
+
+
+2) We want to open up our own version of Jurassic Park, but this time only with dinosaurs who are actually from the Jurassic period. Find all the dinosaurs from the Jurassic period.
+
+dinosaurs=# dinosaurs=# SELECT name, period FROM dinos WHERE period = 'Jurassic';
+        name         |  period
+---------------------+----------
+ Yuanmousaurus       | Jurassic
+ Yinlong             | Jurassic
+ Yingshanosaurus     | Jurassic
+ Yimenosaurus        | Jurassic
+ Yangchuanosaurus    | Jurassic
+ Yandusaurus         | Jurassic
+ Vulcanodon          | Jurassic
+ Tuojiangosaurus     | Jurassic
+ Torvosaurus         | Jurassic
+ Yunnanosaurus       | Jurassic
+ Sinraptor           | Jurassic
+ Stegosaurus         | Jurassic
+ Seismosaurus        | Jurassic
+ Segisaurus          | Jurassic
+ Scutellosaurus      | Jurassic
+ Scelidosaurus       | Jurassic
+ Saurophaganax       | Jurassic
+ Sarcosaurus         | Jurassic
+ Shunosaurus         | Jurassic
+ Rhoetosaurus        | Jurassic
+ Poekilopleuron      | Jurassic
+ Podokesaurus        | Jurassic
+ Piatnitzkysaurus    | Jurassic
+ Proceratosaurus     | Jurassic
+ Patagosaurus        | Jurassic
+ Pantydraco          | Jurassic
+ Datousaurus         | Jurassic
+ Ornitholestes       | Jurassic
+ Omeisaurus          | Jurassic
+ Nqwebasaurus        | Jurassic
+ Monolophosaurus     | Jurassic
+ Othnielia           | Jurassic
+ Megalosaurus        | Jurassic
+ Massospondylus      | Jurassic
+ Marshosaurus        | Jurassic
+ Mamenchisaurus      | Jurassic
+ Lufengosaurus       | Jurassic
+ Lophostropheus      | Jurassic
+ Lexovisaurus        | Jurassic
+ Metriacanthosaurus  | Jurassic
+ Lesothosaurus       | Jurassic
+ Kentrosaurus        | Jurassic
+ Juravenator         | Jurassic
+ Jingshanosaurus     | Jurassic
+ Janenschia          | Jurassic
+ Huayangosaurus      | Jurassic
+ Heterodontosaurus   | Jurassic
+ Kotasaurus          | Jurassic
+ Guanlong            | Jurassic
+ Giraffatitan        | Jurassic
+ Gasosaurus          | Jurassic
+ Gargoyleosaurus     | Jurassic
+ Eustreptospondylus  | Jurassic
+ Europasaurus        | Jurassic
+ Haplocanthosaurus   | Jurassic
+ Emausaurus          | Jurassic
+ Euhelopus           | Jurassic
+ Elaphrosaurus       | Jurassic
+ Dubreuillosaurus    | Jurassic
+ Dryosaurus          | Jurassic
+ Diplodocus          | Jurassic
+ Dilophosaurus       | Jurassic
+ Dicraeosaurus       | Jurassic
+ Cryolophosaurus     | Jurassic
+ Compsognathus       | Jurassic
+ Coelurus            | Jurassic
+ Chungkingosaurus    | Jurassic
+ Chirostenotes       | Jurassic
+ Chinshakiangosaurus | Jurassic
+ Chaoyangsaurus      | Jurassic
+ Dacentrurus         | Jurassic
+ Cetiosaurus         | Jurassic
+ Cetiosauriscus      | Jurassic
+ Ceratosaurus        | Jurassic
+ Chialingosaurus     | Jurassic
+ Brachytrachelopan   | Jurassic
+ Brachiosaurus       | Jurassic
+ Bellusaurus         | Jurassic
+ Barosaurus          | Jurassic
+ Barapasaurus        | Jurassic
+ Camarasaurus        | Jurassic
+ Anchisaurus         | Jurassic
+ Amygdalodon         | Jurassic
+ Ammosaurus          | Jurassic
+ Allosaurus          | Jurassic
+ Agilisaurus         | Jurassic
+ Apatosaurus         | Jurassic
+ Lapparentosaurus    | Jurassic
+ Hesperosaurus       | Jurassic
+ Camptosaurus        | Jurassic
+ Aardonyx            | Jurassic
+ Archaeopteryx       | Jurassic
+(92 rows)
+
+3) Jurassic Park was a huge success for us. Now we want to open up a sequel park: Cretaceous Park. This time though, we're a little more organized, and we want to know how much space all these dinosaurs are going to take up. Find the total sum length of all the dinosaurs from the Cretaceous period.
+
+dinosaurs=# SELECT SUM(length) FROM dinos WHERE period = 'Cretaceous';
+   sum
+---------
+ 1366.45
+(1 row)
+
+
+4) Great news! Our board of investors recently secured us a large island where we can put all the dinosaurs from both Jurassic Park and Cretaceous Park. This new park will be called Juraceous Park, which according to our focus groups really rolls off the tongue. Find all the dinosaurs from either the Jurassic OR Cretaceous periods, and order them by their species name alphabetically.
+
+dinosaurs=# SELECT name, period FROM dinos WHERE period = 'Cretaceous' OR period = 'Jurassic' ORDER BY name ASC;
+          name           |   period
+-------------------------+------------
+ Aardonyx                | Jurassic
+ Abelisaurus             | Cretaceous
+ Achelousaurus           | Cretaceous
+ Achillobator            | Cretaceous
+ Acrocanthosaurus        | Cretaceous
+ Aegyptosaurus           | Cretaceous
+ Afrovenator             | Cretaceous
+ Agilisaurus             | Jurassic
+ Alamosaurus             | Cretaceous
+ Albertaceratops         | Cretaceous
+ Albertosaurus           | Cretaceous
+ Alectrosaurus           | Cretaceous
+ Alioramus               | Cretaceous
+ Allosaurus              | Jurassic
+ Alvarezsaurus           | Cretaceous
+ Amargasaurus            | Cretaceous
+ Ammosaurus              | Jurassic
+ Ampelosaurus            | Cretaceous
+ Amygdalodon             | Jurassic
+ Anatotitan              | Cretaceous
+ Anchiceratops           | Cretaceous
+ Anchisaurus             | Jurassic
+ Ankylosaurus            | Cretaceous
+ Anserimimus             | Cretaceous
+ Antarctopelta           | Cretaceous
+ Antarctosaurus          | Cretaceous
+ Apatosaurus             | Jurassic
+ Aragosaurus             | Cretaceous
+ Aralosaurus             | Cretaceous
+ Archaeoceratops         | Cretaceous
+ Archaeopteryx           | Jurassic
+ Archaeornithomimus      | Cretaceous
+ Argentinosaurus         | Cretaceous
+ Arrhinoceratops         | Cretaceous
+ Atlascopcosaurus        | Cretaceous
+ Aucasaurus              | Cretaceous
+ Austrosaurus            | Cretaceous
+ Avaceratops             | Cretaceous
+ Avimimus                | Cretaceous
+ Bactrosaurus            | Cretaceous
+ Bagaceratops            | Cretaceous
+ Bambiraptor             | Cretaceous
+ Barapasaurus            | Jurassic
+ Barosaurus              | Jurassic
+ Baryonyx                | Cretaceous
+ Becklespinax            | Cretaceous
+ Beipiaosaurus           | Cretaceous
+ Bellusaurus             | Jurassic
+ Borogovia               | Cretaceous
+ Brachiosaurus           | Jurassic
+ Brachyceratops          | Cretaceous
+ Brachylophosaurus       | Cretaceous
+ Brachytrachelopan       | Jurassic
+ Bugenasaura             | Cretaceous
+ Buitreraptor            | Cretaceous
+ Camarasaurus            | Jurassic
+ Camptosaurus            | Jurassic
+ Carcharodontosaurus     | Cretaceous
+ Carnotaurus             | Cretaceous
+ Caudipteryx             | Cretaceous
+ Cedarpelta              | Cretaceous
+ Centrosaurus            | Cretaceous
+ Ceratosaurus            | Jurassic
+ Cetiosauriscus          | Jurassic
+ Cetiosaurus             | Jurassic
+ Chaoyangsaurus          | Jurassic
+ Chasmosaurus            | Cretaceous
+ Chialingosaurus         | Jurassic
+ Chinshakiangosaurus     | Jurassic
+ Chirostenotes           | Jurassic
+ Chubutisaurus           | Cretaceous
+ Chungkingosaurus        | Jurassic
+ Citipati                | Cretaceous
+ Coelurus                | Jurassic
+ Compsognathus           | Jurassic
+ Conchoraptor            | Cretaceous
+ Confuciusornis          | Cretaceous
+ Corythosaurus           | Cretaceous
+ Cryolophosaurus         | Jurassic
+ Dacentrurus             | Jurassic
+ Daspletosaurus          | Cretaceous
+ Datousaurus             | Jurassic
+ Deinocheirus            | Cretaceous
+ Deinonychus             | Cretaceous
+ Deltadromeus            | Cretaceous
+ Diceratops              | Cretaceous
+ Dicraeosaurus           | Jurassic
+ Dilophosaurus           | Jurassic
+ Diplodocus              | Jurassic
+ Dracorex                | Cretaceous
+ Dravidosaurus           | Cretaceous
+ Dromaeosaurus           | Cretaceous
+ Dromiceiomimus          | Cretaceous
+ Dryosaurus              | Jurassic
+ Dryptosaurus            | Cretaceous
+ Dubreuillosaurus        | Jurassic
+ Edmontonia              | Cretaceous
+ Edmontosaurus           | Cretaceous
+ Einiosaurus             | Cretaceous
+ Elaphrosaurus           | Jurassic
+ Emausaurus              | Jurassic
+ Eolambia                | Cretaceous
+ Eotyrannus              | Cretaceous
+ Equijubus               | Cretaceous
+ Erketu                  | Cretaceous
+ Erlikosaurus            | Cretaceous
+ Euhelopus               | Jurassic
+ Euoplocephalus          | Cretaceous
+ Europasaurus            | Jurassic
+ Eustreptospondylus      | Jurassic
+ Fukuiraptor             | Cretaceous
+ Fukuisaurus             | Cretaceous
+ Gallimimus              | Cretaceous
+ Gargoyleosaurus         | Jurassic
+ Garudimimus             | Cretaceous
+ Gasosaurus              | Jurassic
+ Gasparinisaura          | Cretaceous
+ Gastonia                | Cretaceous
+ Giganotosaurus          | Cretaceous
+ Gilmoreosaurus          | Cretaceous
+ Giraffatitan            | Jurassic
+ Gobisaurus              | Cretaceous
+ Gorgosaurus             | Cretaceous
+ Goyocephale             | Cretaceous
+ Graciliceratops         | Cretaceous
+ Gryposaurus             | Cretaceous
+ Guanlong                | Jurassic
+ Hadrosaurus             | Cretaceous
+ Hagryphus               | Cretaceous
+ Haplocanthosaurus       | Jurassic
+ Harpymimus              | Cretaceous
+ Hesperosaurus           | Jurassic
+ Heterodontosaurus       | Jurassic
+ Homalocephale           | Cretaceous
+ Huayangosaurus          | Jurassic
+ Hylaeosaurus            | Cretaceous
+ Hypacrosaurus           | Cretaceous
+ Hypselosaurus           | Cretaceous
+ Hypsilophodon           | Cretaceous
+ Iguanodon               | Cretaceous
+ Indosuchus              | Cretaceous
+ Ingenia                 | Cretaceous
+ Irritator               | Cretaceous
+ Isisaurus               | Cretaceous
+ Janenschia              | Jurassic
+ Jaxartosaurus           | Cretaceous
+ Jingshanosaurus         | Jurassic
+ Jinzhousaurus           | Cretaceous
+ Jobaria                 | Cretaceous
+ Juravenator             | Jurassic
+ Kentrosaurus            | Jurassic
+ Khaan                   | Cretaceous
+ Kotasaurus              | Jurassic
+ Kritosaurus             | Cretaceous
+ Lamaceratops            | Cretaceous
+ Lambeosaurus            | Cretaceous
+ Lapparentosaurus        | Jurassic
+ Leaellynasaura          | Cretaceous
+ Leptoceratops           | Cretaceous
+ Lesothosaurus           | Jurassic
+ Lexovisaurus            | Jurassic
+ Liaoceratops            | Cretaceous
+ Liaoxiornis             | Cretaceous
+ Ligabuesaurus           | Cretaceous
+ Lophorhothon            | Cretaceous
+ Lophostropheus          | Jurassic
+ Lufengosaurus           | Jurassic
+ Lurdusaurus             | Cretaceous
+ Magyarosaurus           | Cretaceous
+ Maiasaura               | Cretaceous
+ Majungatholus           | Cretaceous
+ Malawisaurus            | Cretaceous
+ Mamenchisaurus          | Jurassic
+ Mapusaurus              | Cretaceous
+ Marshosaurus            | Jurassic
+ Masiakasaurus           | Cretaceous
+ Massospondylus          | Jurassic
+ Maxakalisaurus          | Cretaceous
+ Megalosaurus            | Jurassic
+ Metriacanthosaurus      | Jurassic
+ Microceratops           | Cretaceous
+ Micropachycephalosaurus | Cretaceous
+ Microraptor             | Cretaceous
+ Minmi                   | Cretaceous
+ Monolophosaurus         | Jurassic
+ Mononykus               | Cretaceous
+ Muttaburrasaurus        | Cretaceous
+ Nanotyrannus            | Cretaceous
+ Nanshiungosaurus        | Cretaceous
+ Nemegtosaurus           | Cretaceous
+ Neovenator              | Cretaceous
+ Neuquenosaurus          | Cretaceous
+ Nigersaurus             | Cretaceous
+ Nipponosaurus           | Cretaceous
+ Noasaurus               | Cretaceous
+ Nodosaurus              | Cretaceous
+ Nomingia                | Cretaceous
+ Nothronychus            | Cretaceous
+ Nqwebasaurus            | Jurassic
+ Omeisaurus              | Jurassic
+ Opisthocoelicaudia      | Cretaceous
+ Ornitholestes           | Jurassic
+ Ornithomimus            | Cretaceous
+ Orodromeus              | Cretaceous
+ Oryctodromeus           | Cretaceous
+ Othnielia               | Jurassic
+ Ouranosaurus            | Cretaceous
+ Oviraptor               | Cretaceous
+ Pachycephalosaurus      | Cretaceous
+ Pachyrhinosaurus        | Cretaceous
+ Panoplosaurus           | Cretaceous
+ Pantydraco              | Jurassic
+ Paralititan             | Cretaceous
+ Parasaurolophus         | Cretaceous
+ Parksosaurus            | Cretaceous
+ Patagosaurus            | Jurassic
+ Pelicanimimus           | Cretaceous
+ Pelorosaurus            | Cretaceous
+ Pentaceratops           | Cretaceous
+ Piatnitzkysaurus        | Jurassic
+ Pinacosaurus            | Cretaceous
+ Platyceratops           | Cretaceous
+ Pleurocoelus            | Cretaceous
+ Podokesaurus            | Jurassic
+ Poekilopleuron          | Jurassic
+ Polacanthus             | Cretaceous
+ Prenocephale            | Cretaceous
+ Probactrosaurus         | Cretaceous
+ Proceratosaurus         | Jurassic
+ Prosaurolophus          | Cretaceous
+ Protarchaeopteryx       | Cretaceous
+ Protoceratops           | Cretaceous
+ Protohadros             | Cretaceous
+ Psittacosaurus          | Cretaceous
+ Quaesitosaurus          | Cretaceous
+ Rebbachisaurus          | Cretaceous
+ Rhabdodon               | Cretaceous
+ Rhoetosaurus            | Jurassic
+ Rinchenia               | Cretaceous
+ Rugops                  | Cretaceous
+ Saichania               | Cretaceous
+ Saltasaurus             | Cretaceous
+ Sarcosaurus             | Jurassic
+ Saurolophus             | Cretaceous
+ Sauropelta              | Cretaceous
+ Saurophaganax           | Jurassic
+ Saurornithoides         | Cretaceous
+ Scelidosaurus           | Jurassic
+ Scutellosaurus          | Jurassic
+ Secernosaurus           | Cretaceous
+ Segisaurus              | Jurassic
+ Segnosaurus             | Cretaceous
+ Seismosaurus            | Jurassic
+ Shamosaurus             | Cretaceous
+ Shanag                  | Cretaceous
+ Shantungosaurus         | Cretaceous
+ Shunosaurus             | Jurassic
+ Shuvuuia                | Cretaceous
+ Silvisaurus             | Cretaceous
+ Sinocalliopteryx        | Cretaceous
+ Sinornithosaurus        | Cretaceous
+ Sinosauropteryx         | Cretaceous
+ Sinraptor               | Jurassic
+ Sinvenator              | Cretaceous
+ Sonidosaurus            | Cretaceous
+ Spinosaurus             | Cretaceous
+ Stegoceras              | Cretaceous
+ Stegosaurus             | Jurassic
+ Stenopelix              | Cretaceous
+ Struthiomimus           | Cretaceous
+ Struthiosaurus          | Cretaceous
+ Stygimoloch             | Cretaceous
+ Styracosaurus           | Cretaceous
+ Suchomimus              | Cretaceous
+ Supersaurus             | Cretaceous
+ Talarurus               | Cretaceous
+ Tanius                  | Cretaceous
+ Tarbosaurus             | Cretaceous
+ Tarchia                 | Cretaceous
+ Telmatosaurus           | Cretaceous
+ Tenontosaurus           | Cretaceous
+ Therizinosaurus         | Cretaceous
+ Thescelosaurus          | Cretaceous
+ Torosaurus              | Cretaceous
+ Torvosaurus             | Jurassic
+ Triceratops             | Cretaceous
+ Troodon                 | Cretaceous
+ Tsagantegia             | Cretaceous
+ Tsintaosaurus           | Cretaceous
+ Tuojiangosaurus         | Jurassic
+ Tylocephale             | Cretaceous
+ Tyrannosaurus           | Cretaceous
+ Udanoceratops           | Cretaceous
+ Unenlagia               | Cretaceous
+ Urbacodon               | Cretaceous
+ Utahraptor              | Cretaceous
+ Valdosaurus             | Cretaceous
+ Velociraptor            | Cretaceous
+ Vulcanodon              | Jurassic
+ Wuerhosaurus            | Cretaceous
+ Yandusaurus             | Jurassic
+ Yangchuanosaurus        | Jurassic
+ Yimenosaurus            | Jurassic
+ Yingshanosaurus         | Jurassic
+ Yinlong                 | Jurassic
+ Yuanmousaurus           | Jurassic
+ Yunnanosaurus           | Jurassic
+ Zalmoxes                | Cretaceous
+ Zephyrosaurus           | Cretaceous
+ Zuniceratops            | Cretaceous
+(310 rows)
+
+5) Saurischians are the "lizard hipped" order of dinosaurs, and one of the two main branches. All carnivorous dinosaurs are Saurischians, but not all Saurischians are carnivorous. Find all the dinosaurs from the t_order Saurischia that are Herbivorous.
+
+SELECT name, t_order, diet FROM dinos WHERE t_order = 'Saurischia' AND diet = 'Herbivorous';
+
+dinosaurs=#   SELECT name, t_order, diet FROM dinos WHERE t_order = 'Saurischia' AND diet = 'Herbivorous';
+        name         |  t_order   |    diet
+---------------------+------------+-------------
+ Yuanmousaurus       | Saurischia | Herbivorous
+ Yimenosaurus        | Saurischia | Herbivorous
+ Vulcanodon          | Saurischia | Herbivorous
+ Supersaurus         | Saurischia | Herbivorous
+ Sonidosaurus        | Saurischia | Herbivorous
+ Seismosaurus        | Saurischia | Herbivorous
+ Saltasaurus         | Saurischia | Herbivorous
+ Rebbachisaurus      | Saurischia | Herbivorous
+ Quaesitosaurus      | Saurischia | Herbivorous
+ Shunosaurus         | Saurischia | Herbivorous
+ Rhoetosaurus        | Saurischia | Herbivorous
+ Plateosaurus        | Saurischia | Herbivorous
+ Pelorosaurus        | Saurischia | Herbivorous
+ Patagosaurus        | Saurischia | Herbivorous
+ Pantydraco          | Saurischia | Herbivorous
+ Paralititan         | Saurischia | Herbivorous
+ Datousaurus         | Saurischia | Herbivorous
+ Pleurocoelus        | Saurischia | Herbivorous
+ Opisthocoelicaudia  | Saurischia | Herbivorous
+ Omeisaurus          | Saurischia | Herbivorous
+ Nigersaurus         | Saurischia | Herbivorous
+ Neuquenosaurus      | Saurischia | Herbivorous
+ Nemegtosaurus       | Saurischia | Herbivorous
+ Mussaurus           | Saurischia | Herbivorous
+ Maxakalisaurus      | Saurischia | Herbivorous
+ Malawisaurus        | Saurischia | Herbivorous
+ Mamenchisaurus      | Saurischia | Herbivorous
+ Lufengosaurus       | Saurischia | Herbivorous
+ Magyarosaurus       | Saurischia | Herbivorous
+ Ligabuesaurus       | Saurischia | Herbivorous
+ Jobaria             | Saurischia | Herbivorous
+ Jingshanosaurus     | Saurischia | Herbivorous
+ Janenschia          | Saurischia | Herbivorous
+ Isisaurus           | Saurischia | Herbivorous
+ Hypselosaurus       | Saurischia | Herbivorous
+ Kotasaurus          | Saurischia | Herbivorous
+ Guaibasaurus        | Saurischia | Herbivorous
+ Giraffatitan        | Saurischia | Herbivorous
+ Europasaurus        | Saurischia | Herbivorous
+ Haplocanthosaurus   | Saurischia | Herbivorous
+ Erketu              | Saurischia | Herbivorous
+ Euhelopus           | Saurischia | Herbivorous
+ Diplodocus          | Saurischia | Herbivorous
+ Dicraeosaurus       | Saurischia | Herbivorous
+ Chubutisaurus       | Saurischia | Herbivorous
+ Chinshakiangosaurus | Saurischia | Herbivorous
+ Cetiosaurus         | Saurischia | Herbivorous
+ Cetiosauriscus      | Saurischia | Herbivorous
+ Brachytrachelopan   | Saurischia | Herbivorous
+ Brachiosaurus       | Saurischia | Herbivorous
+ Bellusaurus         | Saurischia | Herbivorous
+ Barosaurus          | Saurischia | Herbivorous
+ Barapasaurus        | Saurischia | Herbivorous
+ Austrosaurus        | Saurischia | Herbivorous
+ Camarasaurus        | Saurischia | Herbivorous
+ Aragosaurus         | Saurischia | Herbivorous
+ Antarctosaurus      | Saurischia | Herbivorous
+ Anchisaurus         | Saurischia | Herbivorous
+ Amygdalodon         | Saurischia | Herbivorous
+ Ampelosaurus        | Saurischia | Herbivorous
+ Amargasaurus        | Saurischia | Herbivorous
+ Ammosaurus          | Saurischia | Herbivorous
+ Alamosaurus         | Saurischia | Herbivorous
+ Apatosaurus         | Saurischia | Herbivorous
+ Lapparentosaurus    | Saurischia | Herbivorous
+ Aardonyx            | Saurischia | Herbivorous
+ Argentinosaurus     | Saurischia | Herbivorous
+ Aegyptosaurus       | Saurischia | Herbivorous
+(68 rows)
+
+6) Dinosaur names are hard to remember. Find the shortest dinosaur, and rename it Shortie.
+
+dinosaurs=# SELECT MIN(length) FROM dinos;
+ min
+------
+ 0.08
+(1 row)
+
+dinosaurs=# UPDATE dinos
+dinosaurs-# SET name = 'Shortie'
+dinosaurs-# WHERE length = 0.08;
+UPDATE 1
+dinosaurs=# SELECT name, length FROM dinos WHERE length='0.08';
+  name   | length
+---------+--------
+ Shortie |   0.08
+(1 row)
+
+
+
+7) It's the first day of Dino School, and we're doing roll call. Find the alphabetically first dinosaur, so we can make sure they're present for class.
+
+inosaurs=# SELECT name, period FROM dinos ORDER BY name ASC;
+          name           |   period
+-------------------------+------------
+ Aardonyx                | Jurassic
+ Abelisaurus             | Cretaceous
+ Achelousaurus           | Cretaceous
+ Achillobator            | Cretaceous
+ Acrocanthosaurus        | Cretaceous
+ Aegyptosaurus           | Cretaceous
+ Afrovenator             | Cretaceous
+ Agilisaurus             | Jurassic
+ Alamosaurus             | Cretaceous
+ Albertaceratops         | Cretaceous
+ Albertosaurus           | Cretaceous
+ Alectrosaurus           | Cretaceous
+ Alioramus               | Cretaceous
+ Allosaurus              | Jurassic
+ Alvarezsaurus           | Cretaceous
+ Amargasaurus            | Cretaceous
+ Ammosaurus              | Jurassic
+ Ampelosaurus            | Cretaceous
+ Amygdalodon             | Jurassic
+ Anatotitan              | Cretaceous
+ Anchiceratops           | Cretaceous
+ Anchisaurus             | Jurassic
+ Ankylosaurus            | Cretaceous
+ Anserimimus             | Cretaceous
+ Antarctopelta           | Cretaceous
+ Antarctosaurus          | Cretaceous
+ Apatosaurus             | Jurassic
+ Aragosaurus             | Cretaceous
+ Aralosaurus             | Cretaceous
+ Archaeoceratops         | Cretaceous
+ Archaeopteryx           | Jurassic
+ Archaeornithomimus      | Cretaceous
+ Argentinosaurus         | Cretaceous
+ Arrhinoceratops         | Cretaceous
+ Atlascopcosaurus        | Cretaceous
+ Aucasaurus              | Cretaceous
+ Austrosaurus            | Cretaceous
+ Avaceratops             | Cretaceous
+ Avalonia                | Triassic
+ Avimimus                | Cretaceous
+ Azendohsaurus           | Triassic
+ Bactrosaurus            | Cretaceous
+ Bagaceratops            | Cretaceous
+ Bambiraptor             | Cretaceous
+ Barapasaurus            | Jurassic
+ Barosaurus              | Jurassic
+ Baryonyx                | Cretaceous
+ Becklespinax            | Cretaceous
+ Beipiaosaurus           | Cretaceous
+ Bellusaurus             | Jurassic
+ Borogovia               | Cretaceous
+ Brachiosaurus           | Jurassic
+ Brachyceratops          | Cretaceous
+ Brachylophosaurus       | Cretaceous
+ Brachytrachelopan       | Jurassic
+ Bugenasaura             | Cretaceous
+ Buitreraptor            | Cretaceous
+ Camarasaurus            | Jurassic
+ Camptosaurus            | Jurassic
+ Carcharodontosaurus     | Cretaceous
+ Carnotaurus             | Cretaceous
+ Caudipteryx             | Cretaceous
+ Cedarpelta              | Cretaceous
+ Centrosaurus            | Cretaceous
+ Ceratosaurus            | Jurassic
+ Cetiosauriscus          | Jurassic
+ Cetiosaurus             | Jurassic
+ Chaoyangsaurus          | Jurassic
+ Chasmosaurus            | Cretaceous
+ Chialingosaurus         | Jurassic
+ Chindesaurus            | Triassic
+ Chinshakiangosaurus     | Jurassic
+ Chirostenotes           | Jurassic
+ Chubutisaurus           | Cretaceous
+ Chungkingosaurus        | Jurassic
+ Citipati                | Cretaceous
+ Coelophysis             | Triassic
+ Coelurus                | Jurassic
+ Coloradisaurus          | Triassic
+ Compsognathus           | Jurassic
+ Conchoraptor            | Cretaceous
+ Confuciusornis          | Cretaceous
+ Corythosaurus           | Cretaceous
+ Cryolophosaurus         | Jurassic
+ Dacentrurus             | Jurassic
+ Daspletosaurus          | Cretaceous
+ Datousaurus             | Jurassic
+ Deinocheirus            | Cretaceous
+ Deinonychus             | Cretaceous
+ Deltadromeus            | Cretaceous
+ Diceratops              | Cretaceous
+ Dicraeosaurus           | Jurassic
+ Dilophosaurus           | Jurassic
+ Diplodocus              | Jurassic
+ Dracorex                | Cretaceous
+ Dravidosaurus           | Cretaceous
+ Dromaeosaurus           | Cretaceous
+ Dromiceiomimus          | Cretaceous
+ Dryosaurus              | Jurassic
+ Dryptosaurus            | Cretaceous
+ Dubreuillosaurus        | Jurassic
+ Edmontonia              | Cretaceous
+ Edmontosaurus           | Cretaceous
+ Einiosaurus             | Cretaceous
+ Elaphrosaurus           | Jurassic
+ Emausaurus              | Jurassic
+ Eolambia                | Cretaceous
+ Eoraptor                | Triassic
+ Eotyrannus              | Cretaceous
+ Equijubus               | Cretaceous
+ Erketu                  | Cretaceous
+ Erlikosaurus            | Cretaceous
+ Euhelopus               | Jurassic
+ Euoplocephalus          | Cretaceous
+ Europasaurus            | Jurassic
+ Euskelosaurus           | Triassic
+ Eustreptospondylus      | Jurassic
+ Fukuiraptor             | Cretaceous
+ Fukuisaurus             | Cretaceous
+ Gallimimus              | Cretaceous
+ Gargoyleosaurus         | Jurassic
+ Garudimimus             | Cretaceous
+ Gasosaurus              | Jurassic
+ Gasparinisaura          | Cretaceous
+ Gastonia                | Cretaceous
+ Giganotosaurus          | Cretaceous
+ Gilmoreosaurus          | Cretaceous
+ Giraffatitan            | Jurassic
+ Gobisaurus              | Cretaceous
+ Gorgosaurus             | Cretaceous
+ Goyocephale             | Cretaceous
+ Graciliceratops         | Cretaceous
+ Gryposaurus             | Cretaceous
+ Guaibasaurus            | Triassic
+ Guanlong                | Jurassic
+ Hadrosaurus             | Cretaceous
+ Hagryphus               | Cretaceous
+ Haplocanthosaurus       | Jurassic
+ Harpymimus              | Cretaceous
+ Herrerasaurus           | Triassic
+ Hesperosaurus           | Jurassic
+ Heterodontosaurus       | Jurassic
+ Homalocephale           | Cretaceous
+ Huayangosaurus          | Jurassic
+ Hylaeosaurus            | Cretaceous
+ Hypacrosaurus           | Cretaceous
+ Hypselosaurus           | Cretaceous
+ Hypsilophodon           | Cretaceous
+ Iguanodon               | Cretaceous
+ Indosuchus              | Cretaceous
+ Ingenia                 | Cretaceous
+ Irritator               | Cretaceous
+ Isisaurus               | Cretaceous
+ Janenschia              | Jurassic
+ Jaxartosaurus           | Cretaceous
+ Jingshanosaurus         | Jurassic
+ Jinzhousaurus           | Cretaceous
+ Jobaria                 | Cretaceous
+ Juravenator             | Jurassic
+ Kentrosaurus            | Jurassic
+ Khaan                   | Cretaceous
+ Kotasaurus              | Jurassic
+ Kritosaurus             | Cretaceous
+ Lamaceratops            | Cretaceous
+ Lambeosaurus            | Cretaceous
+ Lapparentosaurus        | Jurassic
+ Leaellynasaura          | Cretaceous
+ Leptoceratops           | Cretaceous
+ Lesothosaurus           | Jurassic
+ Lexovisaurus            | Jurassic
+ Liaoceratops            | Cretaceous
+ Ligabuesaurus           | Cretaceous
+ Liliensternus           | Triassic
+ Lophorhothon            | Cretaceous
+ Lophostropheus          | Jurassic
+ Lufengosaurus           | Jurassic
+ Lurdusaurus             | Cretaceous
+ Lycorhinus              | Triassic
+ Magyarosaurus           | Cretaceous
+ Maiasaura               | Cretaceous
+ Majungatholus           | Cretaceous
+ Malawisaurus            | Cretaceous
+ Mamenchisaurus          | Jurassic
+ Mapusaurus              | Cretaceous
+ Marshosaurus            | Jurassic
+ Masiakasaurus           | Cretaceous
+ Massospondylus          | Jurassic
+ Maxakalisaurus          | Cretaceous
+ Megalosaurus            | Jurassic
+ Melanorosaurus          | Triassic
+ Metriacanthosaurus      | Jurassic
+ Microceratops           | Cretaceous
+ Micropachycephalosaurus | Cretaceous
+ Microraptor             | Cretaceous
+ Minmi                   | Cretaceous
+ Monolophosaurus         | Jurassic
+ Mononykus               | Cretaceous
+ Mussaurus               | Triassic
+ Muttaburrasaurus        | Cretaceous
+ Nanotyrannus            | Cretaceous
+ Nanshiungosaurus        | Cretaceous
+ Nemegtosaurus           | Cretaceous
+ Neovenator              | Cretaceous
+ Neuquenosaurus          | Cretaceous
+ Nigersaurus             | Cretaceous
+ Nipponosaurus           | Cretaceous
+ Noasaurus               | Cretaceous
+ Nodosaurus              | Cretaceous
+ Nomingia                | Cretaceous
+ Nothronychus            | Cretaceous
+ Nqwebasaurus            | Jurassic
+ Omeisaurus              | Jurassic
+ Opisthocoelicaudia      | Cretaceous
+ Ornitholestes           | Jurassic
+ Ornithomimus            | Cretaceous
+ Orodromeus              | Cretaceous
+ Oryctodromeus           | Cretaceous
+ Othnielia               | Jurassic
+ Ouranosaurus            | Cretaceous
+ Oviraptor               | Cretaceous
+ Pachycephalosaurus      | Cretaceous
+ Pachyrhinosaurus        | Cretaceous
+ Panoplosaurus           | Cretaceous
+ Pantydraco              | Jurassic
+ Paralititan             | Cretaceous
+ Parasaurolophus         | Cretaceous
+ Parksosaurus            | Cretaceous
+ Patagosaurus            | Jurassic
+ Pelicanimimus           | Cretaceous
+ Pelorosaurus            | Cretaceous
+ Pentaceratops           | Cretaceous
+ Piatnitzkysaurus        | Jurassic
+ Pinacosaurus            | Cretaceous
+ Pisanosaurus            | Triassic
+ Plateosaurus            | Triassic
+ Platyceratops           | Cretaceous
+ Pleurocoelus            | Cretaceous
+ Podokesaurus            | Jurassic
+ Poekilopleuron          | Jurassic
+ Polacanthus             | Cretaceous
+ Prenocephale            | Cretaceous
+ Probactrosaurus         | Cretaceous
+ Proceratosaurus         | Jurassic
+ Procompsognathus        | Triassic
+ Prosaurolophus          | Cretaceous
+ Protarchaeopteryx       | Cretaceous
+ Protoceratops           | Cretaceous
+ Protohadros             | Cretaceous
+ Psittacosaurus          | Cretaceous
+ Quaesitosaurus          | Cretaceous
+ Rebbachisaurus          | Cretaceous
+ Rhabdodon               | Cretaceous
+ Rhoetosaurus            | Jurassic
+ Rinchenia               | Cretaceous
+ Riojasaurus             | Triassic
+ Rugops                  | Cretaceous
+ Saichania               | Cretaceous
+ Saltasaurus             | Cretaceous
+ Saltopus                | Triassic
+ Sarcosaurus             | Jurassic
+ Saurolophus             | Cretaceous
+ Sauropelta              | Cretaceous
+ Saurophaganax           | Jurassic
+ Saurornithoides         | Cretaceous
+ Scelidosaurus           | Jurassic
+ Scutellosaurus          | Jurassic
+ Secernosaurus           | Cretaceous
+ Segisaurus              | Jurassic
+ Segnosaurus             | Cretaceous
+ Seismosaurus            | Jurassic
+ Shamosaurus             | Cretaceous
+ Shanag                  | Cretaceous
+ Shantungosaurus         | Cretaceous
+ Shortie                 | Cretaceous
+ Shunosaurus             | Jurassic
+ Shuvuuia                | Cretaceous
+ Silvisaurus             | Cretaceous
+ Sinocalliopteryx        | Cretaceous
+ Sinornithosaurus        | Cretaceous
+ Sinosauropteryx         | Cretaceous
+ Sinraptor               | Jurassic
+ Sinvenator              | Cretaceous
+ Sonidosaurus            | Cretaceous
+ Spinosaurus             | Cretaceous
+ Staurikosaurus          | Triassic
+ Stegoceras              | Cretaceous
+ Stegosaurus             | Jurassic
+ Stenopelix              | Cretaceous
+ Struthiomimus           | Cretaceous
+ Struthiosaurus          | Cretaceous
+ Stygimoloch             | Cretaceous
+ Styracosaurus           | Cretaceous
+ Suchomimus              | Cretaceous
+ Supersaurus             | Cretaceous
+ Syntarsus               | Triassic
+ Talarurus               | Cretaceous
+ Tanius                  | Cretaceous
+ Tarbosaurus             | Cretaceous
+ Tarchia                 | Cretaceous
+ Telmatosaurus           | Cretaceous
+ Tenontosaurus           | Cretaceous
+ Thecodontosaurus        | Triassic
+ Therizinosaurus         | Cretaceous
+ Thescelosaurus          | Cretaceous
+ Torosaurus              | Cretaceous
+ Torvosaurus             | Jurassic
+ Triceratops             | Cretaceous
+ Troodon                 | Cretaceous
+ Tsagantegia             | Cretaceous
+ Tsintaosaurus           | Cretaceous
+ Tuojiangosaurus         | Jurassic
+ Tylocephale             | Cretaceous
+ Tyrannosaurus           | Cretaceous
+ Udanoceratops           | Cretaceous
+ Unenlagia               | Cretaceous
+ Urbacodon               | Cretaceous
+ Utahraptor              | Cretaceous
+ Valdosaurus             | Cretaceous
+ Velociraptor            | Cretaceous
+ Vulcanodon              | Jurassic
+ Wuerhosaurus            | Cretaceous
+ Yandusaurus             | Jurassic
+ Yangchuanosaurus        | Jurassic
+ Yimenosaurus            | Jurassic
+ Yingshanosaurus         | Jurassic
+ Yinlong                 | Jurassic
+ Yuanmousaurus           | Jurassic
+ Yunnanosaurus           | Jurassic
+ Zalmoxes                | Cretaceous
+ Zephyrosaurus           | Cretaceous
+ Zuniceratops            | Cretaceous
+(331 rows)
